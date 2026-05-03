@@ -282,13 +282,11 @@
                 
                 <div class="flex flex-col md:flex-row md:items-end gap-4">
                     <label class="font-script text-3xl text-gray-800 md:w-1/3">Full Name</label>
-                    <!-- أضفنا name="Name" -->
                     <input type="text" name="Name" placeholder="name goes here" required class="md:w-2/3">
                 </div>
 
                 <div class="flex flex-col md:flex-row md:items-end gap-4">
                     <label class="font-script text-3xl text-gray-800 md:w-1/3">Mobile Number</label>
-                    <!-- أضفنا name="Phone" -->
                     <input type="tel" name="Phone" placeholder="number goes here" required class="md:w-2/3">
                 </div>
 
@@ -296,13 +294,12 @@
                     <label class="font-script text-3xl text-gray-800 md:w-1/3">Attendance</label>
                     <div class="md:w-2/3 space-y-3 font-sans text-sm text-gray-600 pt-2">
                         <label class="flex items-center group cursor-pointer">
-                            <!-- أضفنا name="Attendance" -->
                             <input type="radio" name="Attendance" value="Yes, I'll be there!" required>
-                            <span class="group-hover:text-sage transition-colors">Yes, I'll be there!</span>
+                            <span class="group-hover:text-sage transition-colors ml-2">Yes, I'll be there!</span>
                         </label>
                         <label class="flex items-center group cursor-pointer">
                             <input type="radio" name="Attendance" value="Sorry, I can't make it.">
-                            <span class="group-hover:text-sage transition-colors">Sorry, I can't make it.</span>
+                            <span class="group-hover:text-sage transition-colors ml-2">Sorry, I can't make it.</span>
                         </label>
                     </div>
                 </div>
@@ -377,7 +374,7 @@
             }
         }, 1000);
 
-        // --- كود إرسال البيانات لجوجل شيت ---
+        // --- كود إرسال البيانات لجوجل شيت المحدث ---
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzv6eWU3NTVSKb_3PEEZF1PFgR7VHxQizQlPuTVIvHLgDLyU0nruLNXR2hTq9N6tg0/exec'
         const form = document.getElementById('rsvpForm')
         const submitBtn = document.getElementById('submitBtn')
@@ -385,28 +382,36 @@
         form.addEventListener('submit', e => {
             e.preventDefault()
             
-            // تغيير شكل الزر لإعلام المستخدم بجاري الإرسال
             submitBtn.disabled = true
             submitBtn.innerText = 'SENDING...'
             submitBtn.classList.add('loading')
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => {
-                    console.log('Success!', response)
-                    document.getElementById('successModal').classList.remove('hidden')
-                    form.reset()
-                    submitBtn.disabled = false
-                    submitBtn.innerText = 'SUBMIT'
-                    submitBtn.classList.remove('loading')
-                })
-                .catch(error => {
-                    console.error('Error!', error.message)
-                    // في حالة وجود خطأ، يمكنك إظهار رسالة تنبيه بسيطة
-                    alert('Something went wrong, please try again.')
-                    submitBtn.disabled = false
-                    submitBtn.innerText = 'SUBMIT'
-                    submitBtn.classList.remove('loading')
-                })
+            // تحويل البيانات لـ URLSearchParams لضمان وصولها بشكل صحيح لجوجل
+            const formData = new FormData(form);
+            const params = new URLSearchParams();
+            for (const pair of formData.entries()) {
+                params.append(pair[0], pair[1]);
+            }
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                mode: 'no-cors', // مهم جداً لتجنب مشاكل الـ CORS مع جوجل
+                body: params
+            })
+            .then(() => {
+                // بما أننا استخدمنا no-cors، لا يمكننا قراءة الاستجابة، لكننا سنفترض النجاح
+                document.getElementById('successModal').classList.remove('hidden')
+                form.reset()
+                submitBtn.disabled = false
+                submitBtn.innerText = 'SUBMIT'
+                submitBtn.classList.remove('loading')
+            })
+            .catch(error => {
+                console.error('Error!', error.message)
+                submitBtn.disabled = false
+                submitBtn.innerText = 'SUBMIT'
+                submitBtn.classList.remove('loading')
+            })
         })
     </script>
 </body>
