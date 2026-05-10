@@ -95,9 +95,8 @@
 
     <!-- Section 1: Monogram -->
     <section class="min-h-screen flex flex-col items-center justify-center relative fade-in">
-        <h1 class="font-script text-[12rem] md:text-[18rem] leading-none text-sage/80 select-none">
-            HD
-        </h1>
+        <!-- ضع صورة اللوجو هنا -->
+        <img src="logo.png" alt="HD Logo" class="w-64 md:w-96 mb-8 mix-blend-multiply opacity-80">
         
         <div class="absolute bottom-24 scroll-down cursor-pointer" onclick="document.getElementById('main-content').scrollIntoView({behavior: 'smooth'})">
             <p class="font-serif italic text-gray-400 mb-2 text-sm tracking-widest text-center">Scroll Down to View More</p>
@@ -135,17 +134,17 @@
                     <span id="days" class="text-4xl md:text-5xl font-serif mb-2">00</span>
                     <span class="text-[10px] uppercase tracking-[0.2em] text-gray-400">Days</span>
                 </div>
-                <div class="w-px h-12 bg-gray-200"></div>
+                <div class="w-px h-12 bg-gray-300"></div>
                 <div class="flex flex-col items-center">
                     <span id="hours" class="text-4xl md:text-5xl font-serif mb-2">00</span>
                     <span class="text-[10px] uppercase tracking-[0.2em] text-gray-400">Hours</span>
                 </div>
-                <div class="w-px h-12 bg-gray-200"></div>
+                <div class="w-px h-12 bg-gray-300"></div>
                 <div class="flex flex-col items-center">
                     <span id="minutes" class="text-4xl md:text-5xl font-serif mb-2">00</span>
                     <span class="text-[10px] uppercase tracking-[0.2em] text-gray-400">Minutes</span>
                 </div>
-                <div class="w-px h-12 bg-gray-200"></div>
+                <div class="w-px h-12 bg-gray-300"></div>
                 <div class="flex flex-col items-center">
                     <span id="seconds" class="text-4xl md:text-5xl font-serif mb-2">00</span>
                     <span class="text-[10px] uppercase tracking-[0.2em] text-gray-400">Seconds</span>
@@ -154,7 +153,7 @@
         </section>
 
         <!-- Section 4: Map -->
-        <section class="py-24 px-4 fade-in max-w-4xl mx-auto flex flex-col items-center">
+        <section class="py-24 px-4 fade-in max-w-4xl mx-auto flex flex-col items-center text-center">
             <div class="mb-8 flex flex-col items-center">
                 <div class="text-sage opacity-60 text-3xl mb-1 italic">
                     <svg class="w-16 h-10 mx-auto" viewBox="0 0 100 40" fill="currentColor">
@@ -183,7 +182,7 @@
             <p class="font-sans uppercase tracking-[0.2em] text-accentPink text-sm font-semibold mb-2">
                 THE VINE WEDDING VENUE - ORABI
             </p>
-            <p class="font-serif italic text-gray-500 mb-10">Orabi City, Egypt</p>
+            <p class="font-serif italic text-gray-500 mb-10 text-center">Orabi City, Egypt</p>
             
             <a href="https://maps.app.goo.gl/vh25bJSByLWXDvdCA?g_st=ic" target="_blank" class="inline-flex items-center gap-3 bg-sage hover:bg-sageDark text-white px-10 py-4 rounded-2xl font-sans uppercase tracking-widest text-xs transition-all duration-300 mb-16 shadow-md hover:shadow-lg">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
@@ -205,11 +204,11 @@
             <h2 class="font-script text-6xl md:text-8xl mb-16 text-sageDark">Notes</h2>
 
             <div class="space-y-16 text-center">
-                <!-- Arrive by 5:00 p.m. -->
+                <!-- Arrive by 6:00 p.m. -->
                 <div>
-                    <h3 class="font-serif text-2xl text-sageDark mb-4">Arrive by 5:00 p.m.</h3>
+                    <h3 class="font-serif text-2xl text-sageDark mb-4">Arrive by 6:00 p.m.</h3>
                     <p class="font-sans text-sm text-gray-500 leading-relaxed max-w-xl mx-auto">
-                        Our celebration begins promptly at 5:00 p.m. <br>
+                        Our celebration begins promptly at 6:00 p.m. <br>
                         We’d love for you to arrive on time and be part of every special moment from the very beginning.
                     </p>
                 </div>
@@ -277,21 +276,21 @@
 
         <!-- Section 7: RSVP Form -->
         <section id="rsvp-section" class="py-24 px-4 fade-in max-w-2xl mx-auto">
-            <h2 class="font-script text-5xl md:text-7xl mb-12">RSVP</h2>
+            <h2 class="font-script text-5xl md:text-7xl mb-12 text-center">RSVP</h2>
             <form id="rsvpForm" class="text-left space-y-10">
                 
                 <div class="flex flex-col md:flex-row md:items-end gap-4">
-                    <label class="font-script text-3xl text-gray-800 md:w-1/3">Full Name</label>
+                    <label class="font-serif text-2xl text-gray-800 md:w-1/3">Full Name</label>
                     <input type="text" name="Name" placeholder="name goes here" required class="md:w-2/3">
                 </div>
 
                 <div class="flex flex-col md:flex-row md:items-end gap-4">
-                    <label class="font-script text-3xl text-gray-800 md:w-1/3">Mobile Number</label>
+                    <label class="font-serif text-2xl text-gray-800 md:w-1/3">Mobile Number</label>
                     <input type="tel" name="Phone" placeholder="number goes here" required class="md:w-2/3">
                 </div>
 
                 <div class="flex flex-col md:flex-row md:items-start gap-4 pt-4">
-                    <label class="font-script text-3xl text-gray-800 md:w-1/3">Attendance</label>
+                    <label class="font-serif text-2xl text-gray-800 md:w-1/3">Attendance</label>
                     <div class="md:w-2/3 space-y-3 font-sans text-sm text-gray-600 pt-2">
                         <label class="flex items-center group cursor-pointer">
                             <input type="radio" name="Attendance" value="Yes, I'll be there!" required>
@@ -349,7 +348,7 @@
             observer.observe(element);
         });
 
-        const weddingDate = new Date("Jun 19, 2026 17:00:00").getTime();
+        const weddingDate = new Date("Jun 19, 2026 18:00:00").getTime();
 
         const countdownTimer = setInterval(function() {
             const now = new Date().getTime();
